@@ -1,0 +1,565 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h3 {
+  margin: 0.5% ;
+}
+
+h4 {
+  margin: 1% 0% 0.5% 1.5%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+} */
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.controlList {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.controlGroups {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.nonPlayerControls {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.nonPlayerControls:hover {
+  border-color: #646cff;
+}
+.nonPlayerControls:focus,
+.nonPlayerControls:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.nonPlayerControls {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: rgb(244, 242, 242);
+  border-radius: 7px;
+  border: 2px solid #000;
+}
+
+.nonPlayerControls.light-mode {
+  background-color: hsl(0 0% 70% / 1);
+  color: #000000;
+  border: 2px solid #000;
+}
+
+.nonPlayerControls.light-mode:hover {
+  background-color: hsl(34.52deg 89.03% 58.7%);
+}
+
+.player-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-player {
+  background-color: #000000;
+  margin: 2% 1% 2% 1%;
+  border-radius: 1em;
+  z-index: 100;
+  position: relative;
+  min-width: 777px;
+  width: 98%;
+  transition: box-shadow 0.25s;
+}
+
+.video-player.light-mode {
+  border: 2px solid #000000;
+}
+
+.video-player:hover {
+box-shadow: 0 0 25px 10px hsl(237, 100%, 70%);
+border: 2px solid hsl(236.9deg 100% 78%);
+}
+
+.video-player.light-mode:hover {
+  box-shadow: 0 0 25px 10px hsl(34.52deg 98.08% 37.42%);
+  border: 2px solid hsl(34.5deg 90% 69%);
+}
+
+.video-player:focus,
+.video-player:focus-visible{
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;  
+  backdrop-filter: blur(5px);
+
+}
+
+.popup.light-mode {
+  background: hsl(0deg 0% 100% / 50%);
+}
+
+.popup-content {
+  background-image: linear-gradient(340deg, hsl(269deg 41.82% 57.09% / 75%) 0%, hsl(236deg 75.85% 46.04% / 58%) 54%, hsl(221deg 41.82% 57.09% / 75%) 100%);
+  box-shadow: 0 0 25px 16px hsl(236deg 50% 50% / 60%);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  filter: brightness(170%);
+  border: 2px solid hsl(236deg 50% 50% / 60%);
+  /* background-color: hsl(0deg 4.47% 4.52%); */
+}
+
+.popup-content.light-mode {
+  background-image: linear-gradient(340deg, hsl(35deg 75% 50% / 65%) 0%, hsl(35deg 100% 35% / 90%) 54%, hsl(35deg 75% 50% / 65%) 100%);
+  box-shadow: 0 0 40px 12px hsl(35deg 100% 23% / 90%);
+  color: hsl(20 95% 30% / 1);
+  border: 2px solid hsl(35deg 100% 23% / 90%);
+}
+
+.popup-content input {
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #000000;
+}
+
+.progress-indicator {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  height: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.popupClose {
+  border: 1.5px solid #000000;
+  color: #8f0000;
+  background-color: #000000;
+  position: relative;
+  bottom: 23px;
+  left: 135px;
+  font-size: xx-small;
+  border-radius: 100%;
+  padding: 4px 7px 4px 7px;
+  font-weight: 800;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.popupClose.light-mode {
+  background-color: #fff;
+  border: 1.5px solid #ffffff;
+}
+
+.popupClose:hover {
+  border: 1px solid #8f0000;
+  color: hsl(220deg 10.35% 45.85% / 90%);
+  background-color: #8f0000;
+  /* box-shadow: 0px 0px 10px 3px #8f0000; */
+  text-shadow: 0 0 10px #8f0000;
+}
+
+.popupClose.light-mode:hover {
+  border: 1.5px solid #8f0000;
+  color: #fff;
+  background-color: #8f0000;
+  /* box-shadow: 0px 0px 10px 3px #8f0000; */
+  text-shadow: 0 0 10px #8f0000;
+}
+
+.folder-name.light-mode {
+  color: hsla(0, 0%, 0%, 0.7);
+}
+
+.folder-name {
+  color: hsla(0, 0%, 100%, 0.7);
+  
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.folder-name:hover {
+  color: #6200ea; /* Purple color */
+  text-decoration: underline;
+  text-shadow: 0 0 10px hsla(237, 100%, 70%, 0.8); /* Purple glow effect */
+  cursor: pointer;
+}
+
+.folder-name.light-mode:hover {
+  color: hsl(34.52deg 98.08% 37.42%); /* Purple color */
+  text-decoration: underline;
+  text-shadow: 0 0 10px hsl(34.52deg 89.03% 58.7%); /* Purple glow effect */
+  cursor: pointer;
+}
+
+.control {
+  display: inline-block;
+  margin: 1% 1% 0% 1%;
+  background-color: hsl(0, 0%, 25%);
+  border-radius: 10px;
+  padding: 15px;
+  transition: border-color 0.25s;
+  box-sizing: border-box;
+}
+
+.control.light-mode {
+  background-color: hsl(0 0% 50% / 1);
+  border: 2px solid #000000;
+}
+
+.control:hover {
+  border-color: #646cff;
+}
+
+.control.light-mode:hover {
+  border-color: hsl(34.52deg 90.79% 40.42%);
+}
+
+.control:focus,
+.control:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* .player-area .controls label {
+  margin-right: 10px;
+  margin-left: 10px;
+} */
+
+.play-list {
+  background-color: hsl(0, 0%, 25%);
+  border-radius: 10px;
+  margin: 1% 1% 1% 1%;
+  padding-bottom: 1.5%;
+  padding-right: 25px;
+  display: inline-block;
+  transition: border-color 0.25s;
+  box-sizing: border-box;
+}
+
+.play-list.light-mode {
+  background-color: hsl(0 0% 50% / 1);
+  border: 2px solid #000000;
+  color: #000000;
+}
+
+.play-list:hover {
+  border-color: #646cff;
+}
+
+.play-list.light-mode:hover {
+  border-color: hsl(34.52deg 90.79% 40.42%);
+}
+
+.gridFrame {
+  /* width: 100%; */
+  overflow: auto;
+  /* height: 100%; */
+  border-radius: 10px;
+  margin: 0.5% 0% 0.5% 24px;
+}
+
+/* Subtitle Styling */
+video::cue {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background-color: hsla(236, 50%, 50%, 0.9);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+input[type=file].light-mode::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background-color: hsl(35deg 98% 37% / 60%);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: hsl(236, 60%, 55%)
+}
+
+input[type=file].light-mode::file-selector-button:hover {
+  background-color: hsla(35, 91%, 52%, 0.89);
+  color:hsl(20 95% 30% / 1);
+}
+
+label {
+  color: rgb(244, 242, 242);
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+label.light-mode {
+  color: black;
+}
+
+select {
+  color: rgb(244, 242, 242);
+  background-color: rgb(0 0 0 / 92%);
+  border-radius: 7px;
+  border-width: 2px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  /* appearance: none; */
+}
+
+select.light-mode {
+  background-color: hsl(0 0% 70% / 1);
+  color: #000;
+  border: 2px solid #000000;
+}
+
+option:hover {
+  background-color: #4caf50;
+}
+
+select:hover {
+  border-color: hsl(237, 100%, 70%);
+}
+
+select.light-mode:hover {
+  background-color: hsl(34.52deg 89.03% 58.7%);
+  border: 2px solid #000000;
+}
+
+select:focus,
+select:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(109px, 1fr));
+  /* margin: 0.5% 1.5%; */
+  background: black;
+  border-radius: 10px;
+  /* overflow-y: auto; */
+  /* float: left; */
+  /* width: 99%; */
+  min-width: 595px;
+  max-width: 1189px;
+}
+
+.grid-container.light-mode {
+  background: hsl(0 0% 60% / 1);
+  border: 1px solid #000000;
+}
+
+.grid-item {
+  background-color: #000000;
+  padding: 10px;
+  border: 3px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  /* width: auto; */
+  margin: 5px 6px;
+}
+
+.grid-item.light-mode {
+  background-color: hsl(0 0% 70% / 1);
+  border: 3px solid #000000;
+  color: #000000;
+}
+
+.grid-item.active {
+  background-color: hsl(104.2deg 85.43% 43.05% / 40%);
+  color: hsl(104.2deg 85.43% 43.05%);
+  border-color: hsl(104.2deg 85.43% 43.05%);
+  font-weight: bold;
+}
+
+.grid-item.active.light-mode {
+  background-color: hsl(104.2deg 85.43% 43.05% / 53%);
+  color: hsl(103.89deg 97.39% 30%);
+  border-color: hsl(104.2deg 96.87% 30.14%);
+}
+
+.grid-item:hover {
+  background-color: hsl(237deg 92.99% 74.18% / 60%);
+  color: white;
+  border-color: white;
+}
+
+.grid-item.light-mode:hover {
+  background-color: hsl(34.52deg 89.03% 58.7%);
+  color: #000000;
+  border-color: #000000;
+}
+
+.no-files {
+  grid-column: span 10; /* Span across all columns if no files are found */
+  text-align: center;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  .nonPlayerControls {
+    background-color: #f9f9f9;
+  }
+  #audioTrackSelect {
+    background-color: #f9f9f9;
+  }
+  .video-player{
+    background-color: #f9f9f9;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.app-container.light-mode {
+  background-color: hsl(0 0% 80% / 1);
+  color: #000000;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0px;
+  border-radius: 5px;
+  background-color:transparent;
+  color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.toggle-icon {
+  padding: 3px;
+  border-radius: 5px;
+  background-color:#333;
+  color: #333;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.toggle-icon.light-mode {
+  background-color: hsl(0 0% 70% / 1);
+  color: #333;
+}
+
+.toggle-icon {
+  color:white;
+}
+
+.toggle-icon:hover {
+    background-color: hsl(52.28deg 78.77% 54.15%);
+    color: hsl(26.07deg 83.64% 52.65%);
+}
+
+.toggle-icon.light-mode:hover {
+  color: hsl(0 0% 82% / 1);
+  background-color: hsl(261.11deg 55.69% 38.52%);
+}
+
+/* .toggle-button.light-mode:hover {
+} */
+
+/* .lightToggle.light-mode
+color: "#333",:
+color: "white", */
