@@ -1,7 +1,6 @@
 # Video-Player-For-Local-File
 
-<p>This is a personal project created using React.js to Play local video files on the browser.
-ReadMe will be updated soon with the details.</p>
+<p>This is a personal project created using React.js to Play local video files on the browser.</p>
 
 # Demo - Try it yourself
 
