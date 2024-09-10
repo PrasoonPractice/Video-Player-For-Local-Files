@@ -5,7 +5,7 @@ ReadMe will be updated soon with the details.</p>
 
 # Demo - Try it yourself
 
-<p>You can try it here : <a herf="https://video-player-for-local-files.vercel.app">https://video-player-for-local-files.vercel.app</a></p>
+You can try it here : <a herf="https://video-player-for-local-files.vercel.app"> https://video-player-for-local-files.vercel.app</a>
 
 # Contribution
 
