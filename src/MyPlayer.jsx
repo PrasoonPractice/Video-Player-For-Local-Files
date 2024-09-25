@@ -12,6 +12,8 @@ const MyPlayer = ({isLight}) => {
     const [inputValue, setInputValue] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const videoRef = useRef(null);
+    const [isAutoplay, setIsAutoplay] = useState(true);
+    const [isAutonext, setIsAutonext] = useState(true);
 
     const handleFolderSelect = async (event) => {
         const files = Array.from(event.target.files).filter(file => file.type.includes('video'));
@@ -88,8 +90,12 @@ const MyPlayer = ({isLight}) => {
 
     const handleAudioTrackChange = (event) => {
         const selectedTrack = parseInt(event.target.value);
+        let isVideoPlaying = null;
         audioTracks.forEach((track, index) => {
+            isVideoPlaying = !videoRef.current.paused;
+            isVideoPlaying ? videoRef.current.pause() : null;
             track.enabled = index === selectedTrack;
+            isVideoPlaying ? videoRef.current.play() : null;
         });
     };
 
@@ -103,7 +109,9 @@ const MyPlayer = ({isLight}) => {
     const changeVideo = (step) => {
         const newIndex = currentFileIndex + step;
         if (newIndex >= 0 && newIndex < fileList.length) {
+            videoRef.current.pause();
             setCurrentFileIndex(newIndex);
+            isAutoplay ? videoRef.current.play() : null;
         }
     };
 
